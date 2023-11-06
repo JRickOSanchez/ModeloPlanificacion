@@ -17,7 +17,7 @@ class LoginController extends Controller
     {
         if (Auth::attempt($request->validated(), true)) {
             $request->session()->regenerate();
-            return redirect('welcome');
+            return redirect('dashboard');
         }
 
         return back()->withErrors([

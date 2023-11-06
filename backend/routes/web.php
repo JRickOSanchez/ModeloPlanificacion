@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'login');
-Route::view('/welcome', 'welcome');
+Route::view('/dashboard', 'dashboard');
 Route::post('login', [LoginController::class, 'authenticate']);

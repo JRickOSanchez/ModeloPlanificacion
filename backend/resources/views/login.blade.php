@@ -3,23 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Portal</title>
+    <title>Modelo planificación</title>
     <link rel="stylesheet" href="/assets/dist/vendor.css"/>
     <link rel="stylesheet" href="/assets/dist/style.css"/>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121642637-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-121642637-2');
-    </script>
-
 </head>
 <body>
 
@@ -33,7 +19,6 @@
                         <div class="accordion-control" data-control>
                             <h5>Acceder a PoliMacro</h5>
                         </div>
-                        {{$errors}}
                         <div class="accordion-content" data-content>
                             <div class="accordion-content-wrapper">
                                 <form method="POST" action="{{ url('login') }}">
@@ -45,7 +30,7 @@
                                                placeholder="correo@potros.itson.edu.mx" name="email">
 
                                         @if ($errors->has('email'))
-                                            <p class="text-danger">{{ $errors->first('email') }}</p>
+                                            <p class="text-danger">Correo o contraseña incorrectos</p>
                                         @endif
 
                                     </div>

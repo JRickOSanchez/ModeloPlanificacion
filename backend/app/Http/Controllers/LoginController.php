@@ -15,7 +15,7 @@ class LoginController extends Controller
      */
     public function authenticate(LoginRequest $request): RedirectResponse
     {
-        if (Auth::attempt($request->validated())) {
+        if (Auth::attempt($request->validated(), true)) {
             $request->session()->regenerate();
             return redirect('welcome');
         }

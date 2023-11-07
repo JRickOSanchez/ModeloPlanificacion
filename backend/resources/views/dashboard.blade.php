@@ -24,7 +24,7 @@
                         <div class="row align-items-center">
                             <div class="col-md-8">
                                 <h2 class="mb-0"><b>Macro</b> Poli</h2>
-                                <span class="text-muted">Nombre de usuario</span>
+                                <span class="text-muted">{{ Auth::user()->email }}</span>
                             </div>
                             <div class="col-md-4 text-left text-md-right">
                                 <button type="button" class="btn btn-rounded btn-ico btn-white" data-toggle="tooltip"
@@ -53,26 +53,26 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Fecha de creación</th>
                                             <th scope="col">Acciones</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th scope="row">July 20, 2018</th>
-                                            <td>#110</td>
-                                            <td>$8021.47</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">July 20, 2018</th>
-                                            <td>#111</td>
-                                            <td>$8021.47</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">July 22, 2018</th>
-                                            <td>#112</td>
-                                            <td>$815</td>
-                                        </tr>
+
+                                        @foreach (\App\Models\Macro::all() as $macro)
+                                            <tr>
+                                                <th scope="row">{{ $macro->name }}</th>
+                                                <td>{{ $macro->created_at }}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-ico btn-warning">
+                                                        <i class="icon-pencil"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-ico btn-danger">
+                                                        <i class="icon-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

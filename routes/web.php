@@ -16,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'login');
 Route::view('/dashboard', 'dashboard');
+Route::view('/crear-macro', 'crear-macro');
+
+// API
 Route::post('login', [LoginController::class, 'authenticate']);

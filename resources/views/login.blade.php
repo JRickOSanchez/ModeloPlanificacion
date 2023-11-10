@@ -50,31 +50,6 @@
                             </div>
                         </div>
                     </div>
-                    {{--                    <div class="accordion" data-accordion>--}}
-                    {{--                        <div class="accordion-control" data-control>--}}
-                    {{--                            <h5>Create Account</h5>--}}
-                    {{--                        </div>--}}
-                    {{--                        <div class="accordion-content" data-content>--}}
-                    {{--                            <div class="accordion-content-wrapper">--}}
-                    {{--                                <form>--}}
-                    {{--                                    <div class="form-group">--}}
-                    {{--                                        <label for="exampleFormControlInput3">Email address</label>--}}
-                    {{--                                        <input type="email" class="form-control" id="exampleFormControlInput3"--}}
-                    {{--                                               placeholder="name@example.com">--}}
-                    {{--                                    </div>--}}
-                    {{--                                    <div class="form-group">--}}
-                    {{--                                        <label for="exampleFormControlInput4">Password</label>--}}
-                    {{--                                        <input type="password" class="form-control" id="exampleFormControlInput4">--}}
-                    {{--                                    </div>--}}
-                    {{--                                    <div class="form-group">--}}
-                    {{--                                        <label for="exampleFormControlInput5">Repeat Password</label>--}}
-                    {{--                                        <input type="password" class="form-control" id="exampleFormControlInput5">--}}
-                    {{--                                    </div>--}}
-                    {{--                                    <a href="" class="btn btn-primary btn-block">Sign In</a>--}}
-                    {{--                                </form>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
                 </div>
             </div>
         </div>

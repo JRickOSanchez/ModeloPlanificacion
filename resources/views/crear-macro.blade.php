@@ -10,57 +10,85 @@
                         <div class="row">
                             <div class="col">
                                 <h5 class="mb-2 fs-20 font-weight-normal">Crear nuevo MACRO</h5>
-                                <form>
+                                <form method="POST" action="{{url('macro/crear')}}">
+                                    @csrf
                                     <div class="form-row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="firstName">Nombre</label>
-                                                <input type="email"
+                                                <label for="name">Nombre</label>
+                                                <input type="text"
+                                                       id="name"
                                                        class="form-control"
-                                                       id="firstName"
+                                                       name="name"
+                                                       value="{{ old('name') }}"
                                                        placeholder="Nombre para el macro">
                                             </div>
+
+                                            @if ($errors->has('name'))
+                                                <p class="text-danger">{{ $errors->get('name')[0] }}</p>
+                                            @endif
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="secondName">Deporte</label>
-                                                <input type="email"
+                                                <label for="sport">Deporte</label>
+                                                <input type="text"
+                                                       id="sport"
                                                        class="form-control"
-                                                       id="secondName"
+                                                       name="sport"
+                                                       value="{{ old('sport') }}"
                                                        placeholder="Deporte del macro">
                                             </div>
+
+                                            @if ($errors->has('sport'))
+                                                <p class="text-danger">{{ $errors->get('sport')[0] }}</p>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="firstName">Fecha de inicio</label>
+                                                <label for="start_at">Fecha de inicio</label>
                                                 <input type="date"
+                                                       id="start_at"
                                                        class="form-control"
-                                                       id="firstName"
-                                                       placeholder="Nombre para el macro">
+                                                       value="{{ old('start_at') }}"
+                                                       name="start_at">
                                             </div>
+
+                                            @if ($errors->has('start_at'))
+                                                <p class="text-danger">{{ $errors->get('start_at')[0] }}</p>
+                                            @endif
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="secondName">Fecha de fin</label>
+                                                <label for="end_at">Fecha de fin</label>
                                                 <input type="date"
+                                                       id="end_at"
+                                                       name="end_at"
                                                        class="form-control"
-                                                       id="secondName"
-                                                       aria-describedby="secondName"
-                                                       placeholder="Deporte del macro">
+                                                       value="{{ old('end_at') }}">
                                             </div>
+
+                                            @if ($errors->has('end_at'))
+                                                <p class="text-danger">{{ $errors->get('end_at')[0] }}</p>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="firstName">Duración en semanas</label>
-                                                <input type="number"
+                                                <label for="branch">Rama</label>
+                                                <input type="text"
+                                                       id="branch"
+                                                       name="branch"
                                                        class="form-control"
-                                                       id="firstName"
-                                                       placeholder="Duración en número de semanas">
+                                                       value="{{ old('branch') }}"
+                                                       placeholder="Rama del deporte">
                                             </div>
+
+                                            @if ($errors->has('branch'))
+                                                <p class="text-danger">{{ $errors->get('branch')[0] }}</p>
+                                            @endif
                                         </div>
                                         <div class="col"></div>
                                     </div>
@@ -75,7 +103,6 @@
                     </div>
                 </div>
             </div>
-            <!-- / tab -->
         </div>
     </div>
 </section>

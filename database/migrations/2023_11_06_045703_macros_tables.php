@@ -14,6 +14,10 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('name');
+            $table->string('branch');
+            $table->string('sport');
+            $table->date('start_at');
+            $table->date('end_at');
             $table->timestamps();
         });
     }
@@ -23,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('macros');
     }
 };

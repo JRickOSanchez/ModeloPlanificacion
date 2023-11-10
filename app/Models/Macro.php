@@ -8,19 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Models\Macro
  *
- * @property int $id
- * @property int $user_id
- * @property string $name
+ * @property int                             $id
+ * @property int                             $user_id
+ * @property string                          $name
+ * @property string                          $start_at
+ * @property string                          $end_at
+ * @property string                          $branch
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Macro newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Macro newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Macro query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Macro whereBranch($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Macro whereEndAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Macro whereStartAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereUserId($value)
+ * @property string $sport
+ * @method static \Illuminate\Database\Eloquent\Builder|Macro whereSport($value)
  * @mixin \Eloquent
  */
 class Macro extends Model
@@ -40,5 +48,9 @@ class Macro extends Model
     protected $fillable = [
         'name',
         'user_id',
+        'sport',
+        'branch',
+        'start_at',
+        'end_at'
     ];
 }

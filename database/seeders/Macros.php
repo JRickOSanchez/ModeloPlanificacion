@@ -31,7 +31,7 @@ class Macros extends Seeder
     public function run(): void
     {
         foreach ($this->values as $value) {
-            Macro::create($value);
+//            Macro::create($value);
         }
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Macros\MacroController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,7 @@ Route::view('/crear-macro', 'crear-macro');
 
 // API
 Route::post('login', [LoginController::class, 'authenticate']);
+
+Route::prefix('macro/')->controller(MacroController::class)->group(function(){
+    Route::post('crear', 'store');
+});

@@ -24,21 +24,27 @@
                                 <form method="POST" action="{{ url('login') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="exampleFormControlInput1">Correo electrónico</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                                        <label for="email">Correo electrónico</label>
+                                        <input type="email"
+                                               class="form-control"
+                                               id="email"
                                                autocomplete="false"
+                                               value="{{ old('email') }}"
                                                placeholder="correo@potros.itson.edu.mx" name="email">
 
                                         @if ($errors->has('email'))
-                                            <p class="text-danger">Correo o contraseña incorrectos</p>
+                                            <p class="text-danger">{{ $errors->first('email') }}</p>
                                         @endif
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleFormControlInput2">Contraseña</label>
-                                        <input type="password" placeholder="***********" class="form-control"
+                                        <label for="password">Contraseña</label>
+                                        <input type="password"
+                                               class="form-control"
                                                autocomplete="false"
-                                               id="exampleFormControlInput2" name="password">
+                                               placeholder="***********"
+                                               value="{{ old('email') }}"
+                                               id="password" name="password">
 
                                         @if ($errors->has('password'))
                                             <p class="text-danger">{{ $errors->first('password') }}</p>

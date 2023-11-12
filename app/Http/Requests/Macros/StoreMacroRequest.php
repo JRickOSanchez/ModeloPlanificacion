@@ -25,8 +25,22 @@ class StoreMacroRequest extends FormRequest
             'name'     => 'required|string|max:255',
             'branch'   => 'required|string|max:255',
             'sport'    => 'required|string|max:255',
-            'start_at' => 'required|date|max:255',
+            'start_at' => 'required|date',
             'end_at'   => 'required|after:start_at'
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function attributes(): array
+    {
+        return [
+            'name'     => 'Nombre',
+            'branch'   => 'Rama',
+            'sport'    => 'Deporte',
+            'start_at' => 'Fecha de inicio',
+            'end_at'   => 'Fecha de fin'
         ];
     }
 }

@@ -20,8 +20,6 @@ class LoginController extends Controller
             return redirect('dashboard');
         }
 
-        return back()->withErrors([
-            'email' => json_encode($request->validated()),
-        ])->onlyInput('email');
+        return back()->withInput()->withErrors(['password' => 'La contraseña no es correcta']);
     }
 }

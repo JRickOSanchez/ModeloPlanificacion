@@ -15,6 +15,7 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">Nombre</th>
+                                            <th scope="col">Semanas</th>
                                             <th scope="col">Fecha de creación</th>
                                             <th scope="col">Acciones</th>
                                         </tr>
@@ -24,11 +25,13 @@
                                         @foreach (\App\Models\Macro::all() as $macro)
                                             <tr>
                                                 <th scope="row">{{ $macro->name }}</th>
-                                                <td>{{ $macro->created_at }}</td>
+                                                <td>{{ $macro->start_at->diffInWeeks($macro->end_at) }}</td>
+                                                <td>{{ $macro->created_at->format('d/M/Y') }}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-ico btn-warning">
+                                                    <a href="{{ url('editar-macro', parameters: ['id' => $macro->id]) }}"
+                                                       class="btn btn-ico btn-warning">
                                                         <i class="icon-pencil"></i>
-                                                    </button>
+                                                    </a>
                                                     <button type="button" class="btn btn-ico btn-danger">
                                                         <i class="icon-trash"></i>
                                                     </button>

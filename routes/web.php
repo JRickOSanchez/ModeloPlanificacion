@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Macros\MacroController;
+use App\Http\Controllers\MacroView\EditarMacroViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'login');
 Route::view('/dashboard', 'dashboard');
 Route::view('/crear-macro', 'crear-macro');
+Route::get('/editar-macro/{id}', [EditarMacroViewController::class, 'show']);
 
 // API
 Route::post('login', [LoginController::class, 'authenticate']);

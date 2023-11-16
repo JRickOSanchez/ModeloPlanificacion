@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Models\Macro
  *
- * @property int                             $id
- * @property int                             $user_id
- * @property string                          $name
- * @property string                          $start_at
- * @property string                          $end_at
- * @property string                          $branch
+ * @property int $id
+ * @property int $user_id
+ * @property string $name
+ * @property string $branch
+ * @property string $sport
+ * @property \Illuminate\Support\Carbon $start_at
+ * @property \Illuminate\Support\Carbon $end_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Macro newModelQuery()
@@ -24,11 +25,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereEndAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Macro whereSport($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereStartAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Macro whereUserId($value)
- * @property string $sport
- * @method static \Illuminate\Database\Eloquent\Builder|Macro whereSport($value)
  * @mixin \Eloquent
  */
 class Macro extends Model
@@ -39,7 +39,16 @@ class Macro extends Model
      * @var string
      */
     protected $table = 'macros';
-
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'datetime',
+        'start_at' => 'datetime',
+        'end_at' => 'datetime',
+    ];
     /**
      * The attributes that are mass assignable.
      *

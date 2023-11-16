@@ -19,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'login');
 Route::view('/dashboard', 'dashboard');
 Route::view('/crear-macro', 'crear-macro');
-Route::get('/editar-macro/{id}', [EditarMacroViewController::class, 'show']);
+Route::get('/editar-macro/{id}', [EditarMacroViewController::class, 'show'])
+    ->name('macro.editar');
+Route::get('/editar-macro/{id}/acentos', [EditarMacroViewController::class, 'acentos'])
+    ->name('macro.editar.acentos');
 
 // API
 Route::post('login', [LoginController::class, 'authenticate']);

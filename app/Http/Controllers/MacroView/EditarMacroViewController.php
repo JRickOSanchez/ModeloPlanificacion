@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\MacroView;
 
 use App\Http\Controllers\Controller;
-use App\Models\Macro;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use App\Models\Macro;
 
 class EditarMacroViewController extends Controller
 {

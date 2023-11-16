@@ -16,7 +16,13 @@
                                 <span class="text-muted">{{ Auth::user()->email }}</span>
                             </div>
                             <div class="col-md-4 text-left text-md-right">
-                                <a href="{{ url('crear-macro') }}"
+                                <a href="{{ route('dashboard') }}"
+                                   class="btn btn-rounded btn-ico btn-white"
+                                   data-toggle="tooltip"
+                                   data-placement="top" title="Crear nuevo MACRO">
+                                    <i class="icon-home fs-20"></i>
+                                </a>
+                                <a href="{{ route('macro.crear') }}"
                                    class="btn btn-rounded btn-ico btn-white"
                                    data-toggle="tooltip"
                                    data-placement="top" title="Crear nuevo MACRO">

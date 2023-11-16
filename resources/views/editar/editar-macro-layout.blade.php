@@ -20,16 +20,23 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="nav nav-pills mb-2">
-                                                <a class="nav-item nav-link active" data-toggle="tab"
-                                                   href="{{ route('macro.editar', parameters: ['id' => $macro->id]) }}">Datos
-                                                    generales</a>
-                                                <a class="nav-item nav-link" data-toggle="tab"
-                                                   href="{{ route('macro.editar.acentos', parameters: ['id' => $macro->id]) }}">Acentos</a>
+
+                                                <a class="nav-item nav-link
+                                                {{ Route::current()->getName() == 'macro.editar' ? 'active' : '' }}"
+                                                   data-toggle="tab"
+                                                   href="{{ route('macro.editar', parameters: ['id' => $macro->id]) }}">
+                                                    Datos generales
+                                                </a>
+
+                                                <a class="nav-item nav-link
+                                                {{ Route::current()->getName() == 'macro.editar.acentos' ? 'active' : '' }}"
+                                                   data-toggle="tab"
+                                                   href="{{ route('macro.editar.acentos', parameters: ['id' => $macro->id]) }}">
+                                                    Acentos
+                                                </a>
                                             </div>
-                                            <div class="tab-content px-2">
-                                                <div class="tab-pane show active" role="tabpanel">
-                                                    @yield('slot')
-                                                </div>
+                                            <div class="px-2">
+                                                @yield('slot')
                                             </div>
                                         </div>
                                     </div>

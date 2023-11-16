@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Acentos\AcentosController;
+use App\Http\Controllers\AcentoView\AcentoViewController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Macros\MacroController;
 use App\Http\Controllers\MacroView\EditarMacroViewController;
@@ -17,16 +19,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'login');
-Route::view('/dashboard', 'dashboard');
-Route::view('/crear-macro', 'crear-macro');
+Route::view('/dashboard', 'dashboard')->name('dashboard');
+Route::view('/crear-macro', 'crear-macro')->name('macro.crear');
 Route::get('/editar-macro/{id}', [EditarMacroViewController::class, 'show'])
-    ->name('macro.editar');
+     ->name('macro.editar');
 Route::get('/editar-macro/{id}/acentos', [EditarMacroViewController::class, 'acentos'])
-    ->name('macro.editar.acentos');
+     ->name('macro.editar.acentos');
+
+
+Route::get('/macro/{id}/acento/crear', [AcentoViewController::class, 'paso1'])->name('macro.acento.crear.1');
 
 // API
 Route::post('login', [LoginController::class, 'authenticate']);
 
-Route::prefix('macro/')->controller(MacroController::class)->group(function(){
+Route::prefix('macro/')->controller(MacroController::class)->group(function () {
     Route::post('crear', 'store');
 });
+
+Route::post('macro/{id}/acento/paso-1', [AcentosController::class, 'paso1'])
+    ->name('api.macro.acento.paso-1');

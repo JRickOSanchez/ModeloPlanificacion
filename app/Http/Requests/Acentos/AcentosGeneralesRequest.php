@@ -23,7 +23,7 @@ class AcentosGeneralesRequest extends FormRequest
     {
         return [
             'nombre'  => 'required|string|max:255',
-            'semanas' => 'required|integer'
+            'semanas' => 'required|integer|min:1'
         ];
     }
 }

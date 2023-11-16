@@ -31,6 +31,10 @@ class AcentosSemanasController extends Controller
                 $currentWeek++;
                 $percents[]    = (int) $value;
                 $totalPercents += (int) $value;
+
+                if ((int) $value == 0) {
+                    $errores = 'No puede haber una semana con 0%';
+                }
             }
         }
 

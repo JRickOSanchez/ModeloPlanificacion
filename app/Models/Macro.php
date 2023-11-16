@@ -39,6 +39,7 @@ class Macro extends Model
      * @var string
      */
     protected $table = 'macros';
+
     /**
      * The attributes that should be cast.
      *
@@ -49,6 +50,7 @@ class Macro extends Model
         'start_at' => 'datetime',
         'end_at' => 'datetime',
     ];
+
     /**
      * The attributes that are mass assignable.
      *

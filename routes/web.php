@@ -43,8 +43,7 @@ Route::post('/editar-macro/{id}/acento/crear', [AcentosController::class, 'actio
 Route::get('/editar-macro/{id}/acento/crear/semanas/{nombre}/{semanas}', [AcentosSemanasController::class, 'view'])
      ->name('macro.acento.crear.semanas');
 
-// ACENTOS API
-Route::post('/editar-macro/{id}/acento/crear/semanas/{nombre}/{semanas}', [AcentosController::class, 'guardar'])
+Route::post('/editar-macro/{id}/acento/crear/semanas/{nombre}/{semanas}', [AcentosSemanasController::class, 'action'])
      ->name('macro.acento.crear.semanas.guardar');
 
 

@@ -7,15 +7,19 @@
 
         <h5><b>Acento:</b> {{ $nombre }}</h5>
         <h5> - <b>Semanas:</b> {{ $semanas }}</h5>
+
     </div>
-
-
     <form method="POST" action="{{route('macro.acento.crear.semanas.guardar', parameters: [
         'id' => $macro->id,
         'nombre' => $nombre,
         'semanas' => $semanas
     ])}}">
         @csrf
+
+        <p class="text-danger">
+            {{ session('errores') }}
+        </p>
+
         <div class="form-row">
             @for ($i = 1; $i <= $semanas; $i++)
                 <div class="col-6">

@@ -26,15 +26,20 @@ Route::get('/editar-macro/{id}', [EditarMacroViewController::class, 'show'])
 Route::get('/editar-macro/{id}/acentos', [EditarMacroViewController::class, 'acentos'])
      ->name('macro.editar.acentos');
 
+// ACENTOS
 
-Route::get('/macro/{id}/acento/crear', [AcentoViewController::class, 'paso1'])->name('macro.acento.crear.1');
+Route::get('/macro/{id}/acento/crear', [AcentoViewController::class, 'paso1'])
+    ->name('macro.acento.crear.1');
 
-// API
+Route::post('macro/{id}/acento/crear/semanas', [AcentosController::class, 'paso1'])
+     ->name('macro.acento.crear.2');
+
+// -------- API -------- //
 Route::post('login', [LoginController::class, 'authenticate']);
 
 Route::prefix('macro/')->controller(MacroController::class)->group(function () {
     Route::post('crear', 'store');
 });
 
-Route::post('macro/{id}/acento/paso-1', [AcentosController::class, 'paso1'])
-    ->name('api.macro.acento.paso-1');
+Route::post('macro/{id}/acento/paso-2/{nombre}/{semanas}', [AcentosController::class, 'paso2'])
+     ->name('api.macro.acento.paso-2');

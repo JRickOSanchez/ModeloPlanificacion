@@ -10,10 +10,13 @@
     </div>
 
 
-    <form method="POST" action="{{route('api.macro.acento.paso-1', parameters: ['id' =>$macro->id])}}">
+    <form method="POST" action="{{route('api.macro.acento.paso-2', parameters: [
+        'id' => $macro->id,
+        'nombre' => $nombre,
+        'semanas' => $semanas
+    ])}}">
         @csrf
         <div class="form-row">
-
             @for ($i = 1; $i <= $semanas; $i++)
                 <div class="col-6">
                     <div class="form-group">

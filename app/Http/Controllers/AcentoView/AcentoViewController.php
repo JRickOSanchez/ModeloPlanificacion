@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class AcentoViewController extends Controller
 {
-
     /**
      * @param Request $request
      * @param mixed   $id

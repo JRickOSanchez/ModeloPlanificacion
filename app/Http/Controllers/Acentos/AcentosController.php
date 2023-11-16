@@ -16,4 +16,10 @@ class AcentosController extends Controller
             'macro' => Macro::firstWhere('id', '=', $id)
         ]);
     }
+
+    public function paso2(AcentosPaso1Request $request, mixed $id, mixed $nombre, mixed $semanas)
+    {
+        \Log::info(json_encode($request->post()));
+        return back();
+    }
 }

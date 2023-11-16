@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Acentos\AcentosSemanasController;
 use App\Http\Controllers\Acentos\AcentosController;
-use App\Http\Controllers\AcentoView\AcentoViewController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Macros\MacroController;
 use App\Http\Controllers\MacroView\EditarMacroViewController;
@@ -20,19 +20,33 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'login');
 Route::view('/dashboard', 'dashboard')->name('dashboard');
+
+// CREAR MACRO
 Route::view('/crear-macro', 'crear-macro')->name('macro.crear');
-Route::get('/editar-macro/{id}', [EditarMacroViewController::class, 'show'])
-     ->name('macro.editar');
+
+// EDITAR MACRO - VISTA
+Route::get('/editar-macro/{id}/general', [EditarMacroViewController::class, 'show'])
+     ->name('macro.editar.generales');
+
 Route::get('/editar-macro/{id}/acentos', [EditarMacroViewController::class, 'acentos'])
      ->name('macro.editar.acentos');
 
 // ACENTOS
+Route::get('/editar-macro/{id}/acento/crear', [AcentosController::class, 'view'])
+     ->name('macro.acento.crear');
 
-Route::get('/macro/{id}/acento/crear', [AcentoViewController::class, 'paso1'])
-    ->name('macro.acento.crear.1');
+Route::post('/editar-macro/{id}/acento/crear', [AcentosController::class, 'action'])
+     ->name('api.macro.acento.crear');
 
-Route::post('macro/{id}/acento/crear/semanas', [AcentosController::class, 'paso1'])
-     ->name('macro.acento.crear.2');
+
+// ACENTOS SEMANAS
+Route::get('/editar-macro/{id}/acento/crear/semanas/{nombre}/{semanas}', [AcentosSemanasController::class, 'view'])
+     ->name('macro.acento.crear.semanas');
+
+// ACENTOS API
+Route::post('/editar-macro/{id}/acento/crear/semanas/{nombre}/{semanas}', [AcentosController::class, 'guardar'])
+     ->name('macro.acento.crear.semanas.guardar');
+
 
 // -------- API -------- //
 Route::post('login', [LoginController::class, 'authenticate']);
@@ -40,6 +54,3 @@ Route::post('login', [LoginController::class, 'authenticate']);
 Route::prefix('macro/')->controller(MacroController::class)->group(function () {
     Route::post('crear', 'store');
 });
-
-Route::post('macro/{id}/acento/paso-2/{nombre}/{semanas}', [AcentosController::class, 'paso2'])
-     ->name('api.macro.acento.paso-2');

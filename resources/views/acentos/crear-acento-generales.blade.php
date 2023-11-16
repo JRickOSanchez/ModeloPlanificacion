@@ -3,7 +3,7 @@
 @section('title', 'Macro - Crear acento')
 @section('slot')
 
-    <form method="POST" action="{{route('api.macro.acento.paso-1', parameters: ['id' =>$macro->id])}}">
+    <form method="POST" action="{{route('api.macro.acento.crear', parameters: ['id' =>$macro->id])}}">
         @csrf
         <div class="form-row">
             <div class="col">

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Acentos;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AcentosPaso1Request extends FormRequest
+class AcentosGeneralesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

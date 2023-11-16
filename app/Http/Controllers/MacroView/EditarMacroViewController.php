@@ -21,7 +21,7 @@ class EditarMacroViewController extends Controller
         if ($macro == null) {
             return view('macro-no-encontrado');
         }
-        return view('editar-macro', ['macro' => $macro]);
+        return view('editar-macro-generales', ['macro' => $macro]);
     }
 
     /**

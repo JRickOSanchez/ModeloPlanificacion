@@ -28,13 +28,13 @@
                                                 <td>{{ $macro->start_at->diffInWeeks($macro->end_at) }}</td>
                                                 <td>{{ $macro->created_at->format('d/M/Y') }}</td>
                                                 <td>
-                                                    <a href="{{ url('editar-macro', parameters: ['id' => $macro->id]) }}"
+                                                    <a href="{{ route('macro.editar.generales', parameters: ['id' => $macro->id]) }}"
                                                        class="btn btn-ico btn-warning">
                                                         <i class="icon-pencil"></i>
                                                     </a>
-                                                    <button type="button" class="btn btn-ico btn-danger">
-                                                        <i class="icon-trash"></i>
-                                                    </button>
+{{--                                                    <button type="button" class="btn btn-ico btn-danger">--}}
+{{--                                                        <i class="icon-trash"></i>--}}
+{{--                                                    </button>--}}
                                                 </td>
                                             </tr>
                                         @endforeach

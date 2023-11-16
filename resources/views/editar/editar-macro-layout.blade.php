@@ -24,7 +24,7 @@
                                                 <a class="nav-item nav-link
                                                 {{ Route::current()->getName() == 'macro.editar' ? 'active' : '' }}"
                                                    data-toggle="tab"
-                                                   href="{{ route('macro.editar', parameters: ['id' => $macro->id]) }}">
+                                                   href="{{ route('macro.editar.generales', parameters: ['id' => $macro->id]) }}">
                                                     Datos generales
                                                 </a>
 

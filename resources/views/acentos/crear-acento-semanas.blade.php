@@ -10,7 +10,7 @@
     </div>
 
 
-    <form method="POST" action="{{route('api.macro.acento.paso-2', parameters: [
+    <form method="POST" action="{{route('macro.acento.crear.semanas.guardar', parameters: [
         'id' => $macro->id,
         'nombre' => $nombre,
         'semanas' => $semanas

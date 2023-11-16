@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Acento
  *
- * @property int $id
- * @property int $macro_id
- * @property string $nombre
- * @property int $semanas
+ * @property int                             $id
+ * @property int                             $macro_id
+ * @property string                          $nombre
+ * @property int                             $semanas
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Acento newModelQuery()
@@ -44,4 +45,12 @@ class Acento extends Model
         'nombre',
         'semanas'
     ];
+
+    /**
+     * @return HasMany
+     */
+    public function distribucion(): HasMany
+    {
+        return $this->hasMany(AcentoDistribucion::class, 'acento_id', 'id');
+    }
 }

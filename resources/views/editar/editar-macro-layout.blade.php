@@ -22,7 +22,7 @@
                                             <div class="nav nav-pills mb-2">
 
                                                 <a class="nav-item nav-link
-                                                {{ Route::current()->getName() == 'macro.editar' ? 'active' : '' }}"
+                                                {{ Route::current()->getName() == 'macro.editar.generales' ? 'active' : '' }}"
                                                    data-toggle="tab"
                                                    href="{{ route('macro.editar.generales', parameters: ['id' => $macro->id]) }}">
                                                     Datos generales

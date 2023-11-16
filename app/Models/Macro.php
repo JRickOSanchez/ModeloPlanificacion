@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Macro
@@ -17,6 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon $end_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Acento> $acentos
+ * @property-read int|null $acentos_count
  * @method static \Illuminate\Database\Eloquent\Builder|Macro newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Macro newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Macro query()
@@ -47,8 +50,8 @@ class Macro extends Model
      */
     protected $casts = [
         'created_at' => 'datetime',
-        'start_at' => 'datetime',
-        'end_at' => 'datetime',
+        'start_at'   => 'datetime',
+        'end_at'     => 'datetime',
     ];
 
     /**
@@ -64,4 +67,12 @@ class Macro extends Model
         'start_at',
         'end_at'
     ];
+
+    /**
+     * @return HasMany
+     */
+    public function acentos(): HasMany
+    {
+        return $this->hasMany(Acento::class, 'macro_id', 'id');
+    }
 }

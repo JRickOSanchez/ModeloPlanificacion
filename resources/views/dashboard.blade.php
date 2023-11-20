@@ -22,7 +22,7 @@
                                         </thead>
                                         <tbody>
 
-                                        @foreach (\App\Models\Macro::all() as $macro)
+                                        @foreach (\App\Models\Macro::whereUserId(Auth::user()->id)->get() as $macro)
                                             <tr>
                                                 <th scope="row">{{ $macro->name }}</th>
                                                 <td>{{ $macro->start_at->diffInWeeks($macro->end_at) }}</td>

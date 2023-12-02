@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Mesociclos;
+namespace App\Http\Controllers\Mesosiclos;
 
 use App\Http\Controllers\Controller;
 use App\Models\Macro;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class MesocicloController extends Controller
+class MesociclosCrearController extends Controller
 {
     /**
      * @param Request $request
@@ -21,6 +21,6 @@ class MesocicloController extends Controller
         if ($macro == null) {
             return view('macro-no-encontrado');
         }
-        return view('mesociclos/mesociclos-listado', ['macro' => $macro]);
+        return view('mesociclos/mesociclos-crear', ['macro' => $macro]);
     }
 }

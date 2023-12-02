@@ -13,26 +13,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-content" id="component-1">
-                        <div class="tab-pane show active" role="tabpanel">
-                            <div class="component-example">
-                                <div class="container">
+                    <div class="tab-content">
+                        <div class="tab-pane show active">
+                                <div class="container p-4">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="nav nav-pills mb-2">
-
+                                            <div class="nav mb-2">
                                                 <a class="nav-item nav-link
                                                 {{ Route::current()->getName() == 'macro.editar.generales' ? 'active' : '' }}"
-                                                   data-toggle="tab"
                                                    href="{{ route('macro.editar.generales', parameters: ['id' => $macro->id]) }}">
                                                     Datos generales
                                                 </a>
 
                                                 <a class="nav-item nav-link
                                                 {{ Route::current()->getName() == 'macro.editar.acentos' ? 'active' : '' }}"
-                                                   data-toggle="tab"
                                                    href="{{ route('macro.editar.acentos', parameters: ['id' => $macro->id]) }}">
                                                     Acentos
+                                                </a>
+
+                                                <a class="nav-item nav-link
+                                                {{ Route::current()->getName() == 'macro.editar.mesociclos' ? 'active' : '' }}"
+                                                   href="{{ route('macro.editar.mesociclos', parameters: ['id' => $macro->id]) }}">
+                                                    Mesociclos
                                                 </a>
                                             </div>
                                             <div class="px-2">
@@ -40,7 +42,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>

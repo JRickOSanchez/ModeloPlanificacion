@@ -18,7 +18,7 @@
 <!-- / footer -->
 
 
-<script src="../../assets/js/vendor.js"></script>
-<script src="../../assets/js/app.js"></script>
+<script src="/assets/dist/vendor.js"></script>
+<script src="/assets/dist/app.js"></script>
 </body>
 </html>

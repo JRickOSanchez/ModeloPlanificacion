@@ -5,6 +5,8 @@ use App\Http\Controllers\Acentos\AcentosController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Macros\MacroController;
 use App\Http\Controllers\MacroView\EditarMacroViewController;
+use App\Http\Controllers\Mesosiclos\MesociclosController;
+use App\Http\Controllers\Mesosiclos\MesociclosCrearController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,7 +49,12 @@ Route::post('/editar-macro/{id}/acento/crear/semanas/{nombre}/{semanas}', [Acent
      ->name('macro.acento.crear.semanas.guardar');
 
 // MESOCICLOS
-//Route::get('/editar-macro/{id}/mesociclos', )
+Route::get('/editar-macro/{id}/mesociclos', [MesociclosController::class, 'view'])
+     ->name('macro.editar.mesociclos');;
+
+
+Route::get('/editar-macro/{id}/mesociclos/crear', [MesociclosCrearController::class, 'view'])
+     ->name('macro.editar.mesoiclos.crear');;
 
 
 // -------- API -------- //

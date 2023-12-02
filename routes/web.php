@@ -46,6 +46,9 @@ Route::get('/editar-macro/{id}/acento/crear/semanas/{nombre}/{semanas}', [Acento
 Route::post('/editar-macro/{id}/acento/crear/semanas/{nombre}/{semanas}', [AcentosSemanasController::class, 'action'])
      ->name('macro.acento.crear.semanas.guardar');
 
+// MESOCICLOS
+//Route::get('/editar-macro/{id}/mesociclos', )
+
 
 // -------- API -------- //
 Route::post('login', [LoginController::class, 'authenticate']);

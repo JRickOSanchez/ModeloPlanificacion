@@ -22,8 +22,7 @@ jobs:
         run: composer install --no-ansi --no-interaction --no-progress --no-scripts --optimize-autoloader
 
       - name: Set up environment file
-        run: cp .env.example .env
-        if: !fileExists('.env')
+        run: cp .env.example .env || true
 
       - name: Generate application key
         run: php artisan key:generate

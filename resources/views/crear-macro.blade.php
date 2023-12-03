@@ -86,11 +86,23 @@
                                                        placeholder="Rama del deporte">
                                             </div>
 
+
                                             @if ($errors->has('branch'))
                                                 <p class="text-danger">{{ $errors->get('branch')[0] }}</p>
                                             @endif
                                         </div>
-                                        <div class="col"></div>
+
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="weeks">Semanas de duración</label>
+                                                <input type="text"
+                                                       id="weeks"
+                                                       disabled
+                                                       value=""
+                                                       class="form-control"
+                                                       placeholder="Semanas de duración">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-row mt-1 align-items-center">
                                         <div class="col-6">
@@ -106,5 +118,43 @@
         </div>
     </div>
 </section>
+
+<script>
+    const startAt = document.getElementById('start_at');
+    const endAt   = document.getElementById('end_at');
+
+    startAt.addEventListener('change', (event) => {
+        tryCalculate();
+    });
+
+    endAt.addEventListener('change', (event) => {
+        tryCalculate();
+    });
+
+    function calculateWeeks() {
+        const date1 = new Date(startAt.value);
+        const date2 = new Date(endAt.value);
+
+        if (date2 < date1) {
+            document.getElementById('weeks').value = '';
+            return;
+        }
+
+        const diferenciaEnMilisegundos = Math.abs(date2 - date1);
+
+        const semanas = Math.floor(diferenciaEnMilisegundos / (1000 * 60 * 60 * 24 * 7));
+
+        document.getElementById('weeks').value = semanas;
+    }
+
+    function tryCalculate() {
+        if (startAt.value.length > 0 && endAt.value.length > 0) {
+            calculateWeeks();
+        }
+    }
+
+    tryCalculate();
+
+</script>
 
 @include('components/bottom')

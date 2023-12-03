@@ -24,6 +24,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Acento whereNombre($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Acento whereSemanas($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Acento whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\AcentoDistribucion> $distribucion
+ * @property-read int|null $distribucion_count
  * @mixin \Eloquent
  */
 class Acento extends Model

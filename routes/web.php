@@ -56,6 +56,9 @@ Route::get('/editar-macro/{id}/mesociclos', [MesociclosController::class, 'view'
 Route::get('/editar-macro/{id}/mesociclos/crear', [MesociclosCrearController::class, 'view'])
      ->name('macro.editar.mesoiclos.crear');;
 
+Route::post('/editar-macro/{id}/mesociclos/crear', [MesociclosCrearController::class, 'action'])
+     ->name('macro.editar.mesoiclos.guardar');
+
 
 // -------- API -------- //
 Route::post('login', [LoginController::class, 'authenticate']);

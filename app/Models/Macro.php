@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Acento> $acentos
  * @property-read int|null $acentos_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Mesociclo> $mesociclos
+ * @property-read int|null $mesociclos_count
  * @method static \Illuminate\Database\Eloquent\Builder|Macro newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Macro newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Macro query()
@@ -74,5 +76,13 @@ class Macro extends Model
     public function acentos(): HasMany
     {
         return $this->hasMany(Acento::class, 'macro_id', 'id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function mesociclos(): HasMany
+    {
+        return $this->hasMany(Mesociclo::class, 'macro_id', 'id');
     }
 }
